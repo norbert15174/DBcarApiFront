@@ -31,7 +31,7 @@ const Menu = () => (
   <MenuWrapper>
 
       <Nav
-      link to="/faq"
+      link to="/CarNews"
       activeStyle={{
         fontWeight: "bold",
       }}
@@ -39,7 +39,7 @@ const Menu = () => (
       Car News
     </Nav>
     <Nav
-      to="/faq2"
+      to="/Car"
       activeStyle={{
         fontWeight: "bold",
       }}
