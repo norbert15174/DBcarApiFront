@@ -88,8 +88,11 @@ function App() {
                 <CarNews></CarNews>
               </Scrollbars>
             </Route>
+
             <Route path="/Car">
-              <Car></Car>
+              <Scrollbars>
+                <Car></Car>
+              </Scrollbars>
             </Route>
             <Route path="/seeMore/:id" component={UserComponent}></Route>
           </Switch>

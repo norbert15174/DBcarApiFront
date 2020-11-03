@@ -29,7 +29,8 @@ const Header3 = styled.h3`
 const LinkToArticle = styled(Link)`
 
     color: white;
-
+    font-weight: 500;
+    text-decoration: none;
 `;
 
 const ArticleHref = styled.a`
@@ -38,6 +39,26 @@ const ArticleHref = styled.a`
 
 
 `;
+
+const LinkButton = styled.button`
+  position: relative;
+  width: 320px;
+  padding: 10px 5px 10px 10px;
+  top: 20px;
+  text-align: center;
+  left: 0;
+  color: white;
+  font-size: 18px;
+  
+  background-color: #b30000;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+`;
+
 
 const CarNewsItem = (props) => (
   <ItemWrapper>
@@ -51,7 +72,7 @@ const CarNewsItem = (props) => (
     <p>
       {props.content ? props.content : props.description}
     </p>
-    {props.content ? null : <Header3><LinkToArticle link to={`/seeMore/${props.id}`}>dowiedz sie wiecej</LinkToArticle></Header3>}
+    {props.content ? null : <LinkButton><LinkToArticle link to={`/seeMore/${props.id}`}>Dowiedz sie wiecej</LinkToArticle></LinkButton>}
   </ItemWrapper>
 );
 export default CarNewsItem;
