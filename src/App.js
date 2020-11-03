@@ -1,24 +1,81 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import Menu from "./components/menu/menu";
+import styled from "styled-components";
+import CarNews from "./components/carNews/carnews";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { Scrollbars } from "react-custom-scrollbars";
+
+const BG = styled.div`
+  width: 100vw;
+  height: 100vh;
+  /* background-image: url("http://bit.ly/2gPLxZ4"); */
+  background-image: url("https://wallpaperaccess.com/full/294788.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  -webkit-font-smoothing: antialiased;
+  z-index: -5;
+`;
+
+const BlBoc = styled.div`
+ 
+ position: relative;
+  width: 80%;
+  height: 80%;
+  top: 5%;
+  left: 10%;
+  background: inherit;
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 20px 20px 20px 20px;
+
+  &:after{
+    content: '';
+ width: 100%;
+ height: 100%;
+ background: inherit; 
+ position: absolute;
+ bottom: 0;
+ box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+ filter: blur(10px);
+ padding: 20px 20px 20px 20px;
+  }
+ 
+`;
+
+class UserComponent extends React.Component{
+  userId = this.props.match.params;
+  render(){
+   
+    return(
+      <>
+      {console.log(this.userId.id)}
+      </>
+    )
+  }
+ }
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <BG>
+        <Menu />
+        <BlBoc>
+         
+            <Switch>
+              <Route path="/faq">
+              <Scrollbars>
+                <CarNews></CarNews>
+              </Scrollbars>
+              </Route>
+              <Route path="/Car"></Route>
+              <Route path="/seeMore/:id" component={UserComponent}></Route>
+            </Switch>
+          
+        </BlBoc>
+      </BG>
+    </Router>
   );
 }
 
